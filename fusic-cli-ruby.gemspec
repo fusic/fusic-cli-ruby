@@ -4,7 +4,7 @@ require_relative 'lib/fusic_cli_ruby/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'fusic-cli-ruby'
-  spec.version       = Fusic::Cli::Ruby::VERSION
+  spec.version       = FusicCliRuby::VERSION
   spec.authors       = ['Yuhei Okazaki']
   spec.email         = ['okazaki@fusic.co.jp']
 
