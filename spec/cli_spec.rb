@@ -20,6 +20,7 @@ RSpec.describe 'Fusic CLI', type: :aruba do
         fusic help [COMMAND]  # Describe available commands or one specific command
         fusic members         # Open members page.
         fusic outline         # Open company/outline page.
+        fusic techblog        # Open techblog top page.
         fusic top             # Open top page.
         fusic version         # version
 
@@ -66,6 +67,18 @@ RSpec.describe 'Fusic CLI', type: :aruba do
     EXPECTED
 
     before { run_command('fusic outline') }
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'when techblog subcommand' do
+    expected = <<~EXPECTED
+      /usr/bin/open https://tech.fusic.co.jp/
+      https://tech.fusic.co.jp/
+    EXPECTED
+
+    before { run_command('fusic techblog') }
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }

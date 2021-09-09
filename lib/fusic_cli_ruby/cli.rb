@@ -40,6 +40,16 @@ module FusicCliRuby
       exit(-1)
     end
 
+    desc 'techblog', 'Open techblog top page.'
+    def techblog
+      puts Fusic.new(Launchy).techblog
+      puts ''
+      exit
+    rescue StandardError => e
+      output_error_if_debug_mode(e)
+      exit(-1)
+    end
+
     map %w[--version -v] => :version
     desc 'version', 'version'
     def version
