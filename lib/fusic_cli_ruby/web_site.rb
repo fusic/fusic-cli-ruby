@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'thor'
-require 'pry'
 require 'launchy'
 require 'fusic_cli_ruby'
 
