@@ -12,62 +12,32 @@ module FusicCliRuby
 
     desc 'top', 'Open top page.'
     def top
-      puts Fusic.new(Launchy).top
-      puts ''
-      exit
-    rescue StandardError => e
-      output_error_if_debug_mode(e)
-      exit(-1)
+      execute { puts Fusic.new(Launchy).top }
     end
 
     desc 'members', 'Open members page.'
     def members
-      puts Fusic.new(Launchy).members
-      puts ''
-      exit
-    rescue StandardError => e
-      output_error_if_debug_mode(e)
-      exit(-1)
+      execute { puts Fusic.new(Launchy).members }
     end
 
     desc 'outline', 'Open company/outline page.'
     def outline
-      puts Fusic.new(Launchy).company_outline
-      puts ''
-      exit
-    rescue StandardError => e
-      output_error_if_debug_mode(e)
-      exit(-1)
+      execute { puts Fusic.new(Launchy).company_outline }
     end
 
     desc 'techblog', 'Open techblog top page.'
     def techblog
-      puts Fusic.new(Launchy).techblog
-      puts ''
-      exit
-    rescue StandardError => e
-      output_error_if_debug_mode(e)
-      exit(-1)
+      execute { puts Fusic.new(Launchy).techblog }
     end
 
     desc 'blog', 'Open blog top page.'
     def blog
-      puts Fusic.new(Launchy).blog
-      puts ''
-      exit
-    rescue StandardError => e
-      output_error_if_debug_mode(e)
-      exit(-1)
+      execute { puts Fusic.new(Launchy).blog }
     end
 
     desc 'news', 'Open news top page.'
     def news
-      puts Fusic.new(Launchy).news
-      puts ''
-      exit
-    rescue StandardError => e
-      output_error_if_debug_mode(e)
-      exit(-1)
+      execute { puts Fusic.new(Launchy).news }
     end
 
     map %w[--version -v] => :version
@@ -77,6 +47,15 @@ module FusicCliRuby
     end
 
     private
+
+    def execute
+      yield
+      puts ''
+      exit
+    rescue StandardError => e
+      output_error_if_debug_mode(e)
+      exit(-1)
+    end
 
     def output_error_if_debug_mode(exception)
       return unless options[:debug]
