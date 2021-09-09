@@ -30,6 +30,10 @@ module FusicCliRuby
       open('https://fusic.co.jp/doings/')
     end
 
+    def news
+      open('https://fusic.co.jp/news/')
+    end
+
     private
 
     def open(url)

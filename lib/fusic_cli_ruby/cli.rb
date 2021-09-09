@@ -50,9 +50,19 @@ module FusicCliRuby
       exit(-1)
     end
 
-    desc 'blog', 'Open techblog top page.'
+    desc 'blog', 'Open blog top page.'
     def blog
       puts Fusic.new(Launchy).blog
+      puts ''
+      exit
+    rescue StandardError => e
+      output_error_if_debug_mode(e)
+      exit(-1)
+    end
+
+    desc 'news', 'Open news top page.'
+    def news
+      puts Fusic.new(Launchy).news
       puts ''
       exit
     rescue StandardError => e

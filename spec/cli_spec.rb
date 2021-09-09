@@ -17,9 +17,10 @@ RSpec.describe 'Fusic CLI', type: :aruba do
   context 'with help option' do
     expected = <<~EXPECTED
       Commands:
-        fusic blog            # Open techblog top page.
+        fusic blog            # Open blog top page.
         fusic help [COMMAND]  # Describe available commands or one specific command
         fusic members         # Open members page.
+        fusic news            # Open news top page.
         fusic outline         # Open company/outline page.
         fusic techblog        # Open techblog top page.
         fusic top             # Open top page.
@@ -92,6 +93,18 @@ RSpec.describe 'Fusic CLI', type: :aruba do
     EXPECTED
 
     before { run_command('fusic blog') }
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'when news subcommand' do
+    expected = <<~EXPECTED
+      /usr/bin/open https://fusic.co.jp/news/
+      https://fusic.co.jp/news/
+    EXPECTED
+
+    before { run_command('fusic news') }
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
