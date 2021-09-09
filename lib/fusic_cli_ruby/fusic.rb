@@ -5,7 +5,7 @@ require 'launchy'
 require 'fusic_cli_ruby'
 
 module FusicCliRuby
-  class WebSite
+  class Fusic
     def initialize(launcher)
       @launcher = launcher
     end
