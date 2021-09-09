@@ -39,4 +39,13 @@ RSpec.describe FusicCliRuby::Fusic do
       expect(fusic.techblog).to eq(url)
     end
   end
+
+  describe '#blog' do
+    let(:url) { 'https://fusic.co.jp/doings/' }
+
+    it 'open doings and return url.' do
+      expect(launcher).to receive(:open).with(url, { dry_run: false })
+      expect(fusic.blog).to eq(url)
+    end
+  end
 end

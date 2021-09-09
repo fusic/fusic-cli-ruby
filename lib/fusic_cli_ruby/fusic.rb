@@ -26,6 +26,10 @@ module FusicCliRuby
       open('https://tech.fusic.co.jp/')
     end
 
+    def blog
+      open('https://fusic.co.jp/doings/')
+    end
+
     private
 
     def open(url)
