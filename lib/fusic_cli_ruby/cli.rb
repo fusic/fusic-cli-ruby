@@ -23,7 +23,7 @@ module FusicCliRuby
     map %w[--version -v] => :version
     desc 'version', 'version'
     def version
-      puts Estackprof::VERSION
+      puts FusicCliRuby::VERSION
     end
 
     private
