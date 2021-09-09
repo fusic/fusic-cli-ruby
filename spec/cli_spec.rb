@@ -11,13 +11,15 @@ RSpec.describe 'Fusic CLI', type: :aruba do
     before { run_command('fusic -v') }
 
     it { expect(last_command_started).to be_successfully_executed }
-    it { expect(last_command_started).to have_output('0.1.2') }
+    it { expect(last_command_started).to have_output(FusicCliRuby::VERSION) }
   end
 
   context 'with help option' do
     expected = <<~EXPECTED
       Commands:
         fusic help [COMMAND]  # Describe available commands or one specific command
+        fusic members         # Open members page.
+        fusic outline         # Open company/outline page.
         fusic top             # Open top page.
         fusic version         # version
 
@@ -45,11 +47,34 @@ RSpec.describe 'Fusic CLI', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'when version subcommand' do
-    expected = '0.1.2'
-    before { run_command('fusic version') }
+  context 'when members subcommand' do
+    expected = <<~EXPECTED
+      /usr/bin/open https://fusic.co.jp/members
+      https://fusic.co.jp/members
+    EXPECTED
+
+    before { run_command('fusic members') }
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'when outline subcommand' do
+    expected = <<~EXPECTED
+      /usr/bin/open https://fusic.co.jp/company/outline
+      https://fusic.co.jp/company/outline
+    EXPECTED
+
+    before { run_command('fusic outline') }
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'when version subcommand' do
+    before { run_command('fusic version') }
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(FusicCliRuby::VERSION) }
   end
 end

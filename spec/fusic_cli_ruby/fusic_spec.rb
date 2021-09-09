@@ -12,4 +12,22 @@ RSpec.describe FusicCliRuby::Fusic do
       expect(fusic.top).to eq(url)
     end
   end
+
+  describe '#members' do
+    let(:url) { 'https://fusic.co.jp/members' }
+
+    it 'open members and return url.' do
+      expect(launcher).to receive(:open).with(url, { dry_run: false })
+      expect(fusic.members).to eq(url)
+    end
+  end
+
+  describe '#company_outline' do
+    let(:url) { 'https://fusic.co.jp/company/outline' }
+
+    it 'open company/outline and return url.' do
+      expect(launcher).to receive(:open).with(url, { dry_run: false })
+      expect(fusic.company_outline).to eq(url)
+    end
+  end
 end

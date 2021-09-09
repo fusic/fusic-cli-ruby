@@ -20,6 +20,26 @@ module FusicCliRuby
       exit(-1)
     end
 
+    desc 'members', 'Open members page.'
+    def members
+      puts Fusic.new(Launchy).members
+      puts ''
+      exit
+    rescue StandardError => e
+      output_error_if_debug_mode(e)
+      exit(-1)
+    end
+
+    desc 'outline', 'Open company/outline page.'
+    def outline
+      puts Fusic.new(Launchy).company_outline
+      puts ''
+      exit
+    rescue StandardError => e
+      output_error_if_debug_mode(e)
+      exit(-1)
+    end
+
     map %w[--version -v] => :version
     desc 'version', 'version'
     def version
