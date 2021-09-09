@@ -21,3 +21,10 @@ Style/Documentation:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*.rb"
+
+RSpec/MultipleExpectations:
+  Enabled: false

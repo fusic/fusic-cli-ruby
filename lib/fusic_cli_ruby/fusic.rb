@@ -10,10 +10,16 @@ module FusicCliRuby
       @launcher = launcher
     end
 
-    def top(options = {})
+    def top
       url = 'https://fusic.co.jp/'
       @launcher.open(url, options)
-      puts url
+      url
+    end
+
+    private
+
+    def options
+      { dry_run: ENV['LAUNCHY_DRY_RUN'] == '1' }
     end
   end
 end

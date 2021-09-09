@@ -12,7 +12,8 @@ module FusicCliRuby
 
     desc 'top', 'Open top page.'
     def top
-      Fusic.new(Launchy).top
+      puts Fusic.new(Launchy).top
+      puts ''
       exit
     rescue StandardError => e
       output_error_if_debug_mode(e)
