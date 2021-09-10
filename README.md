@@ -1,8 +1,6 @@
-# Fusic::Cli::Ruby
+# Fusic CLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fusic/cli/ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+For those who love Fusic, this is a CLI for quick access to Fusic information.
 
 ## Installation
 
@@ -22,7 +20,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Go to the Top page.
+
+```sh
+$ fusic top
+https://fusic.co.jp/ # and open top page in your browser.
+```
+
+You can use the following command to open the page you want instantly.
+
+```sh
+$ fusic blog            # Open blog top page.
+$ fusic help [COMMAND]  # Describe available commands or one specific command
+$ fusic members         # Open members page.
+$ fusic news            # Open news top page.
+$ fusic outline         # Open company/outline page.
+$ fusic techblog        # Open techblog top page.
+$ fusic top             # Open top page.
+$ fusic version         # version
+```
 
 ## Development
 
