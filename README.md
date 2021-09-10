@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Go to the Top page.
+ex: Go to the Top page.
 
 ```sh
 $ fusic top
